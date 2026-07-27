@@ -1,16 +1,25 @@
+function sanitize(value: string): string {
+  // Strip BOM / zero-width / line-separator chars that hitchhike in when
+  // secrets are pasted from browsers or Google Cloud consoles.
+  return value
+    .replace(/[\u200B-\u200D\u2028\u2029\uFEFF]/g, "")
+    .trim();
+}
+
 function required(name: string): string {
   const value = process.env[name];
-  if (!value || value.trim() === "") {
+  if (!value || sanitize(value) === "") {
     throw new Error(
       `Missing required environment variable: ${name}. See .env.example for the full list.`
     );
   }
-  return value;
+  return sanitize(value);
 }
 
 function optional(name: string, fallback?: string): string | undefined {
   const value = process.env[name];
-  return value && value.trim() !== "" ? value : fallback;
+  if (!value || sanitize(value) === "") return fallback;
+  return sanitize(value);
 }
 
 export function loadResearchEnv() {
