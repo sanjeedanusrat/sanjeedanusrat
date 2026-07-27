@@ -1,0 +1,46 @@
+name: Research agent - weekly ideas
+
+on:
+  # Wednesday 06:00, fixed PST (UTC-8) year-round — not Pacific local time
+  # with DST. GitHub Actions cron is UTC-only, so this stays "6am PST" in
+  # every calendar month by design. See src/lib/week.ts for the same
+  # fixed-offset convention on the app side.
+  schedule:
+    - cron: "0 14 * * 3"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run-research-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.13"
+
+      - run: npm ci
+
+      - name: Run research agent
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+          RESEARCH_MODEL_ID: ${{ secrets.RESEARCH_MODEL_ID }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          RESEARCH_EMAIL_TO: sanjeedanusrat@gmail.com
+          RESEARCH_EMAIL_FROM: sanjeedanusrat@gmail.com
+          RESEARCH_REPO_URL: https://github.com/sanjeedanusrat/sanjeedanusrat
+          RESEARCH_REPO_REF: main
+        run: npm run research:run
+
+      - name: Commit generated state
+        run: |
+          git config user.name "sanjee-talks-research-agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/weeks
+          git diff --cached --quiet || git commit -m "chore(research): weekly ideas for $(date -u +%F)"
+          git push
