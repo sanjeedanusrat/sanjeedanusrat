@@ -1,0 +1,115 @@
+{
+  "weekOf": "2026-07-29",
+  "generatedAt": "2026-07-29T15:56:49.124Z",
+  "model": {
+    "id": "claude-opus-5"
+  },
+  "newsletterEntryCount": 40,
+  "output": {
+    "weekOf": "2026-07-29",
+    "ideas": [
+      {
+        "id": 1,
+        "pillar": "ai-tools-demos",
+        "title": "I shipped an app from a text message in 40 seconds",
+        "spark": "xAI launched Grok Build Mode on July 28 — you describe an idea in chat, Grok writes it, renders a live working preview inside the conversation, and publishes it to a grok.me link or your own domain. It's Early Beta and gated to SuperGrok Heavy, which is the part worth saying out loud.",
+        "source": "https://x.ai/news/grok-build-mode",
+        "reelAngle": "Screen record the whole loop with no cuts: type one sentence, watch the preview appear, then make two plain-English edits out loud ('make the button sticky', 'add dark mode'). Publish and open the live link on your phone as the payoff. Land on the honest read — this is a shareable demo tonight, not a codebase, and it only exists if you're on the top-tier plan."
+      },
+      {
+        "id": 2,
+        "pillar": "ai-tools-demos",
+        "title": "Meta AI asked for my calendar. I said yes on camera.",
+        "spark": "On July 24 Meta shipped Muse Spark 1.1 into the Meta AI app: it now connects to your email and calendar, writes daily briefings, builds slides, and runs recurring tasks. Meta called it 'our next step toward personal superintelligence.' The real story is the permission screen.",
+        "source": "https://about.fb.com/news/2026/07/meta-ai-muse-spark-doesnt-just-think-it-acts/",
+        "reelAngle": "Open on the actual account-linking prompt, finger hovering. Grant it, then ask for tomorrow's briefing and let it read your real (redacted) week back to you. Land on the trade being made in that one tap: the assistant got useful the moment it got access, and the company asking is the one that also sells ads against your attention. Useful is not the same as free."
+      },
+      {
+        "id": 3,
+        "pillar": "ai-tools-demos",
+        "title": "I hired an AI for the 3am shift and capped its budget",
+        "spark": "Google's July 28 update to Managed Agents in the Gemini API added scheduled cron triggers, a hard max_total_tokens spending cap, environment hooks that can block a tool call before it runs, and free tier access. Recurring autonomous agents just became something you can try without a billing account.",
+        "source": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/",
+        "reelAngle": "Set up one genuinely boring recurring chore on camera — a nightly scan of your saved sources that leaves you a short brief — then show the two guardrails as you type them: the token cap, and the hook that refuses a tool call you didn't approve. Cut to the morning, open the output. Land on the line that matters: the unlock this week isn't intelligence, it's a schedule, a budget, and a veto."
+      },
+      {
+        "id": 4,
+        "pillar": "industry-news-takes",
+        "title": "60 hours vs 2 years of experts",
+        "spark": "On July 28 Anthropic disclosed that an unreleased Claude Mythos Preview found a new attack on HAWK, the last lattice-based candidate in NIST's post-quantum signature competition, dropping key recovery on HAWK-256 from 2^64 to 2^38. Human cryptographers had reviewed HAWK for over two years; the model found the shortcut in about 60 hours for roughly $100K in API spend, supervised by a researcher who wasn't a lattice expert.",
+        "source": "https://www.anthropic.com/research/discovering-cryptographic-weaknesses",
+        "reelAngle": "Kill the scary version first: 'No, your bank is fine, HAWK has never been deployed anywhere.' Then show the two numbers side by side — two years of expert review, 60 hours of model time — and the detail that makes it a reel: the human in the loop describes his own role as mostly project management. Land on what actually changed this week, which is who gets to do original math, not whether encryption broke."
+      },
+      {
+        "id": 5,
+        "pillar": "industry-news-takes",
+        "title": "700 million views for a wave tank that never existed",
+        "spark": "An account called wonderfulworldai posted an AI video of a miniature Miami being wiped out by a wave, captioned 'No CGI. No compositing. Just a hand-built miniature Miami and a 40-foot wave tank. Months of work. One take.' Two days later it had ~700 million views — more than any MrBeast Instagram reel — and it's effectively an ad for the AI tool that made it, with an AI label that keeps disappearing.",
+        "source": "https://petapixel.com/2026/07/29/instagram-pushes-ai-video-of-film-crew-shooting-miami-disaster-to-700-million-views/",
+        "reelAngle": "Open with the caption on screen and read it in the voice of a proud craftsman, then reveal it's synthetic and sponsored. As a person who actually shoots things, say the quiet part: the caption lied in exactly the way the algorithm rewards, and confusion in the comments is the engagement. Close on Adam Mosseri's position — label it, don't filter it — and ask whether a label you can miss in 0.4 seconds is a policy or a shrug."
+      },
+      {
+        "id": 6,
+        "pillar": "industry-news-takes",
+        "title": "The company that underspent on AI just passed the company selling it",
+        "spark": "Apple briefly touched a $5 trillion market cap on July 28, a day after passing Nvidia as the most valuable public company. Apple is up ~25% this year; Nvidia, which hit $5T first in October 2025, is up about 6%. The same restraint investors punished Apple for last year is now the reason they're buying it.",
+        "source": "https://www.cnbc.com/2026/07/28/apple-touches-5-trillion-market-cap-for-first-time-.html",
+        "reelAngle": "Two logos, one number, and the year-to-date gap on screen: 25% versus 6%. Then the take — the market spent two years paying for AI capex promises and just started paying for cash flow and delayed Siri instead. Land it on the calendar: Thursday is Tim Cook's last earnings call as CEO before John Ternus takes over, so the most valuable company on earth is changing hands at the exact moment the AI trade changes its mind."
+      },
+      {
+        "id": 7,
+        "pillar": "career-builder-lessons",
+        "title": "Same resume, 100 times, scores from 66 to 99",
+        "spark": "Glen Cathey posted the result of an engineer running one unchanged resume through HackerRank's open-source ATS AI screener 100 times with identical settings: scores ranged from 66 to 99. The detail that makes it a lesson is buried in his post — the one prompt that scored perfectly consistently was the one with no rubric, and it was useless.",
+        "source": "https://www.linkedin.com/posts/glencathey_with-ai-resume-screening-is-hiring-now-a-activity-7478424782104002560-dj8W",
+        "reelAngle": "Put one resume on screen and stamp 100 different scores onto it until the frame is covered. If you're job hunting, this is permission to stop rewriting line 4 for the eleventh time — the variance isn't about you. If you ever screen candidates, here's the actual takeaway: the danger isn't that the score moves, it's shipping it as 'objective' and stopping looking. Land on the fix — a written rubric before the tool, not after."
+      },
+      {
+        "id": 8,
+        "pillar": "career-builder-lessons",
+        "title": "He let agents ship code nobody read. It took 4 months to kill.",
+        "spark": "On the July 15 Pragmatic Engineer episode, Dex Horthy describes his 'lights-off software factory': from July to November 2025 agents handled requests, review, and deploys with no human reading the code. One bug — a primary key routed wrong through the whole codebase — took days to find and three weeks to re-onboard humans onto code no human had ever read. He shut it down.",
+        "source": "https://newsletter.pragmaticengineer.com/p/context-engineering-with-dex-horthy",
+        "reelAngle": "Open with the fantasy stated plainly — 'imagine four months of shipping without reading a line' — then the receipt: days to find one bug, three weeks to re-learn your own product. Show what he runs now instead: four agents overnight, four pull requests by morning, a human reading every one. Land on his ratio, because it's the transferable part — an hour spent planning saves about four hours of implementation, and reading is not the bottleneck you think it is."
+      },
+      {
+        "id": 9,
+        "pillar": "career-builder-lessons",
+        "title": "The #1 on the leaderboard is not #1 for you",
+        "spark": "A Maven lightning lesson landed in my inbox this morning titled 'Stop picking embedding models off the MTEB leaderboard' — Radu Gheorghe from Vespa with Hamel Husain, arguing the leaderboard can't see your data, your latency budget, or what quantization does to your results, so you fine-tune and test on your own corpus instead of trusting a rank.",
+        "source": "Gmail · Maven <maven@list.maven.com>, subject \"⚡️ STARTING IN 1 HOUR: Stop picking embedding models off the MTEB leaderboard\" (Wed, 29 Jul 2026)",
+        "reelAngle": "Start on the leaderboard, finger on the #1 row, and say 'this is the most expensive shortcut in AI right now.' Explain the trap in one breath: a ranking averages someone else's tasks, and your job is not the average. Then widen it past embeddings, because it's the same mistake as picking a tool because it trended or a career move because it topped a list. Land on the rule — shortlist from the leaderboard, decide on your own data."
+      },
+      {
+        "id": 10,
+        "pillar": "explainers-non-experts",
+        "title": "You're already paying an AI bill. It's in your electricity.",
+        "spark": "CNN ran the numbers on July 28: Moody's chief economist Mark Zandi estimates AI's inflationary effect means households are spending about $375 more than a year ago for the same goods, with data centers being built at two to three times the pace of new electricity supply. Nobody signed up for this line item and it's on everyone's bill.",
+        "source": "https://www.cnn.com/2026/07/28/economy/ai-boosting-inflation-us",
+        "reelAngle": "Hold up your own power bill, cover the total with your thumb, and say '$375 a year — that's the part of AI you're funding whether or not you've ever opened ChatGPT.' Explain the mechanism with one prop: a building shows up needing as much power as a small city, someone has to build the wires, and the wires get billed to everybody on the grid. No villain voice, just the plumbing. Land on the one thing viewers can actually act on — this gets decided at state utility commissions, not in Silicon Valley."
+      },
+      {
+        "id": 11,
+        "pillar": "explainers-non-experts",
+        "title": "Nobody is required to be able to turn it off",
+        "spark": "Reps. Ted Lieu and Nathaniel Moran introduced the AI Kill Switch Act on July 23 — a bipartisan bill that would require the biggest AI developers to keep the technical ability to throttle, suspend, or fully shut down their systems, with DHS able to order it and penalties up to $20M a day for defying a shutdown order. The reason it's news is that no such requirement exists today.",
+        "source": "https://lieu.house.gov/media-center/press-releases/reps-lieu-and-moran-introduce-bill-require-kill-switch-ai-systems-can",
+        "reelAngle": "Open with a light switch in frame and the sentence: 'This is a bill to require that this exists. It currently doesn't.' Explain 'shut down an AI' in plain terms — stop answering, cut access, kill the whole system — and note it only covers the giants, meaning $100M-plus training runs at companies making $500M-plus. Be honest that it's introduced, not law. Land on the fact that reframes the whole debate: 86% of voters already want a guaranteed off-switch, which means this isn't the controversial part of AI policy — it's the floor."
+      },
+      {
+        "id": 12,
+        "pillar": "entertainment-tech-ai",
+        "title": "The robot died on stage and PR called it a feature",
+        "spark": "At Qualcomm's Computex 2026 showcase in Taipei, the humanoid walked out carrying the Dragonwing IQ10 chip that powers it, then collapsed in a heap, weakly raised one arm, got covered with a too-small satin sheet like a corpse, and was dropped again on the way out. Qualcomm's statement: a 'controlled shutdown' where the robot 'performed its designed safe-collapse sequence' and 'the safety systems worked as intended.'",
+        "source": "https://www.creativebloq.com/design/product-design/this-video-of-an-ai-robot-collapsing-mid-presentation-gets-funnier-every-time-i-watch-it",
+        "reelAngle": "Pure comedy timing, no explainer energy. Beat one: the robot walks out holding its own brain chip. Beat two: it eats the floor while the presenter keeps talking like nothing happened. Beat three: the sheet, the four guys, the second drop. Then hold the corporate quote on screen and read 'safe-collapse sequence' completely straight. Land the actual tech point in one line — a stage is an adversarial environment for a machine trained in a lab, which is why every humanoid you've seen is a demo, not a product."
+      }
+    ],
+    "recommendedTop4": [
+      5,
+      4,
+      10,
+      12
+    ]
+  }
+}
