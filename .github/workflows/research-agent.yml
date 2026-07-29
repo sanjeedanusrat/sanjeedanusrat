@@ -1,12 +1,17 @@
 name: Research agent - weekly ideas
 
 on:
-  # Wednesday 06:00, fixed PST (UTC-8) year-round — not Pacific local time
-  # with DST. GitHub Actions cron is UTC-only, so this stays "6am PST" in
-  # every calendar month by design. See src/lib/week.ts for the same
-  # fixed-offset convention on the app side.
+  # Target: Wednesday 06:00 PST, fixed UTC-8 year-round (not Pacific local
+  # time with DST). GitHub Actions cron is UTC-only and best-effort: runs at
+  # minute 0 are the most congested and the most likely to be delayed or
+  # dropped entirely. Mitigations:
+  #   - fire at :07, off the congested minute-0 slot
+  #   - a backup slot one hour later, which no-ops (via the guard step) if
+  #     the primary already produced this week's ideas
+  # See src/lib/week.ts for the same fixed-offset convention on the app side.
   schedule:
-    - cron: "0 14 * * 3"
+    - cron: "7 14 * * 3" # primary: Wed 06:07 PST
+    - cron: "7 15 * * 3" # backup:  Wed 07:07 PST, skipped if primary succeeded
   workflow_dispatch: {}
 
 permissions:
@@ -18,13 +23,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Scheduled runs skip when this week's state file already exists (the
+      # successful run commits it, so the backup slot sees it on checkout).
+      # Manual runs (workflow_dispatch) always execute.
+      - name: Check if this week's ideas already went out
+        id: guard
+        run: |
+          PST_DATE=$(TZ=Etc/GMT+8 date +%F)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "state/weeks/${PST_DATE}.json" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "state/weeks/${PST_DATE}.json already exists - primary run succeeded, skipping."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.skip != 'true'
         with:
           node-version: "22.13"
 
       - run: npm ci
+        if: steps.guard.outputs.skip != 'true'
 
       - name: Run research agent
+        if: steps.guard.outputs.skip != 'true'
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
           RESEARCH_MODEL_ID: ${{ secrets.RESEARCH_MODEL_ID }}
@@ -38,9 +60,11 @@ jobs:
         run: npm run research:run
 
       - name: Commit generated state
+        if: steps.guard.outputs.skip != 'true'
         run: |
           git config user.name "sanjee-talks-research-agent"
           git config user.email "actions@users.noreply.github.com"
           git add state/weeks
           git diff --cached --quiet || git commit -m "chore(research): weekly ideas for $(date -u +%F)"
+          git pull --rebase origin main
           git push
